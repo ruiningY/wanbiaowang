@@ -1,0 +1,27 @@
+;(function($){	
+	//console.log($)
+ 	$.fn.extend({
+ 		nav:function(){//局部
+			this.children('li').mouseenter(function(){
+				$(this).css({
+					background:'#fff'			
+				}).children().css({
+					color:'#000'
+				})
+				$(this).children('ul').stop().slideDown(500).end().siblings('li').children('ul').stop().hide()
+			})
+				var that=this;
+			this.children("li").mouseleave(function(){
+				that.children('li').children('ul').stop().slideUp()
+				$(this).css({
+					background:''
+				})
+			.children().css({
+				color:'#000'
+				})
+			})
+		}
+ 	});		
+})(jQuery)
+//调用插件
+$('.nav').nav();
